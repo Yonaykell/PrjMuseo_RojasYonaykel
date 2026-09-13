@@ -24,7 +24,6 @@ public class VentaDelDia {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.now().format(f);
     }
-    }
     public String toString() {
         String msg = "VentaDelDia\n";
         msg += " Fecha: " + fechaDeLaVenta + "\n";
