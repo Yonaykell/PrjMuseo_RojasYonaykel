@@ -1,33 +1,34 @@
-
-/**
- * Write a description of class Persona here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Persona
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Persona
-     */
-    public Persona()
-    {
-        // initialise instance variables
-        x = 0;
+public class Persona {
+    private String nombre;
+    private String identificacion;
+    private BoletoMuseo miBoleto;
+    public Persona(String nombre, String ident) {
+    this(nombre);
+        identificacion = ident;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public Persona(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setIdentificacion(String pIdentificacion) {
+        identificacion = pIdentificacion;
+    }
+    
+    public void asignarBoleto(BoletoMuseo pMiBoleto) {
+        miBoleto = pMiBoleto;
+    }
+    public int consultarMiNumeroDeBoleto() {
+        return miBoleto.getNumeroBoleto();
+    }
+    public String toString() {
+        String msg = "Persona\n";
+        msg += " Nombre: " + nombre + "\n";
+        msg += " Identificacion: " + identificacion + "\n";
+        if (miBoleto != null) {
+        msg += " Boleto asignado: #" + miBoleto.getNumeroBoleto() + "\n";
+        } 
+        else {
+        msg += " Boleto asignado: (ninguno)\n";
+        }
+        return msg;
     }
 }

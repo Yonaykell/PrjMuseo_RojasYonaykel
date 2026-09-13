@@ -1,0 +1,9 @@
+#BlueJ class context
+#Sun Sep 13 16:30:31 CST 2026
+comment0.target=VentaDelDia
+comment1.target=VentaDelDia()
+comment2.params=boleto
+comment2.target=void registrarVentaBoleto(BoletoMuseo)
+comment3.target=double calcularTotalVentaDelDia()
+comment4.target=java.lang.String establecerFechaDeLaVenta()
+numComments=5

@@ -1,0 +1,11 @@
+#BlueJ class context
+#Sun Sep 13 16:19:48 CST 2026
+comment0.target=BoletoMuseo
+comment1.params=precio
+comment1.target=BoletoMuseo(double)
+comment2.target=java.lang.String establecerFechaEmisionBoleto()
+comment3.target=int getContador()
+comment4.target=int getNumeroBoleto()
+comment5.target=double getPrecio()
+comment6.target=java.lang.String toString()
+numComments=7

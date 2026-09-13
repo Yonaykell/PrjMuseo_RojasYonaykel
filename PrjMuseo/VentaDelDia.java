@@ -1,33 +1,39 @@
-
-/**
- * Write a description of class VentaDelDia here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class VentaDelDia
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class VentaDelDia
-     */
-    public VentaDelDia()
-    {
-        // initialise instance variables
-        x = 0;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+public class VentaDelDia {
+    private String fechaDeLaVenta;
+    private List<BoletoMuseo> boletosVendidos;
+    //¿Por que el atributo de agregacion no esta en el UML?
+    public VentaDelDia() {
+        fechaDeLaVenta = establecerFechaDeLaVenta();
+        boletosVendidos = new ArrayList<>();
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void registrarVentaBoleto(BoletoMuseo boleto) {
+        boletosVendidos.add(boleto);
+    }
+    public double calcularTotalVentaDelDia() {
+        double total = 0.0;
+        for (BoletoMuseo b : boletosVendidos) {
+            total += b.getPrecio();
+        }
+    return total;
+    }
+    private String establecerFechaDeLaVenta() {
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.now().format(f);
+    }
+    }
+    public String toString() {
+        String msg = "VentaDelDia\n";
+        msg += " Fecha: " + fechaDeLaVenta + "\n";
+        msg += " Cantidad de boletos: " + boletosVendidos.size() + "\n";
+        msg += " Detalle:\n";
+        for (BoletoMuseo b : boletosVendidos) {
+            msg += " - Boleto #" + b.getNumeroBoleto() + " | " + b.getPrecio() + "\n";
+        }
+        msg += " Total: " + calcularTotalVentaDelDia();
+        return msg;
     }
 }

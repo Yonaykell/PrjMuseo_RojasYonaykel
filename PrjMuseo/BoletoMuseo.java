@@ -1,33 +1,36 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-/**
- * Write a description of class BoletoMuseo here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class BoletoMuseo
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class BoletoMuseo
-     */
-    public BoletoMuseo()
-    {
-        // initialise instance variables
-        x = 0;
+public class BoletoMuseo {
+    private double precio;
+    private int numeroBoleto;
+    private String fechaEmision;
+    private static int contador = 0;
+    public BoletoMuseo(double precio) {
+        this.precio = precio;
+        contador++;
+        this.numeroBoleto = contador;
+        this.fechaEmision = establecerFechaEmisionBoleto();
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    private String establecerFechaEmisionBoleto() {
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.now().format(f);
+    }
+    public static int getContador() {
+        return contador;
+    }
+    public int getNumeroBoleto() {
+        return numeroBoleto;
+    }
+    public double getPrecio() {
+        return precio;
+    }
+    public String toString() {
+    String msg = "BoletoMuseo\n";
+    msg += " Numero: " + numeroBoleto + "\n";
+    msg += " Precio: " + precio + "\n";
+    msg += " Fecha Emision: " + fechaEmision;
+    return msg;
     }
 }
+
